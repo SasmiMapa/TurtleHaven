@@ -1,0 +1,102 @@
+.navbar {
+  background-image: linear-gradient(rgba( 0,0,0,0.6), rgba(0,0,0,0.6)), url("Pictures/b4.jpg") ;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.navBar li a:hover:not(.active) {
+  color:#249a9e;
+}
+
+.bentota {
+  overflow: hidden;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+.bentota h3{
+  color: #0b2527;
+}
+.bentota p {
+  color: #064757;  
+}
+.basicInfo img {
+  width: 300px;
+  height: 200px;
+}
+.basicInfo p {
+  margin: 30px 50px 30px 50px;
+}
+
+@media (max-width: 600px) {
+  .start {
+    top: 53%;
+    left: 50%;
+  }
+  .bentota p {
+    margin: 0 70px 0 70px;
+  }
+  .basicInfo p {
+    margin: 50px 70px 30px 70px;
+  }
+}
+
+.start {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.start h2 {
+  color: white;
+}
+.start p {
+  color: white;
+}
+
+@media only screen and (max-width: 800px) {
+  .start {
+    top: 40%;
+    left: 50%;
+  }
+}
+
+hr {
+  color: #1c6577;
+  border-style: solid;
+  width: 200px;
+}
+
+.sec1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.sec2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  justify-items: center;
+  align-items: center;
+  text-align: center;
+}
+
+.sec2 img {
+  width: 100%;
+  max-width: 200px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  margin-top: 10px;
+}
+
+@media only screen and (max-width: 800px) {
+  .sec2 {
+    grid-template-columns: 1fr;
+  }
+}
