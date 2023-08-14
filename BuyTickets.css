@@ -1,0 +1,243 @@
+header {
+    background-color: #2da39d;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    width: auto;
+}
+
+.breadcrumb-container {
+	width: 500px;
+	margin: auto;
+	margin-top: 1rem;
+}
+
+ul.breadcrumb {
+	padding: 10px 16px;
+	list-style: none;
+	background-color: transparent;
+}
+
+ul.breadcrumb li {
+	display: inline;
+	font-size: 18px;
+}
+
+ul.breadcrumb li+li:before {
+	padding: 8px;
+	color: #61d4c7;
+	content: ">";
+	font-weight: 700;
+}
+
+ul.breadcrumb li a {
+	color: #092d4b;
+	text-decoration: none;
+}
+
+ul.breadcrumb li.active {
+	color: white;
+	text-decoration: none;
+	background-color: unset;
+	display: unset;
+	place-items: unset;
+}
+
+ul.breadcrumb li a:hover {
+	text-decoration: none;
+    color: white;
+}
+
+label[for="dateInput"] {
+    font-size: 17px;
+}
+  
+input[type="date"], input[type="text"], input[type="email"], input[type="number"] {
+    color: #308196;
+    height: 30px;
+}
+
+option {
+    color: #308196;
+    height: 30px;
+}
+select {
+    color: #308196;
+    height: 30px;
+}
+#Duration {
+    height: 50px;
+}
+
+.sub-button {
+    border: none;
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    font-size: 17px;
+    border-radius: 0;
+    cursor: pointer;
+}
+.sub-button span {
+    vertical-align: middle;
+    display: inline-block;
+    transition: all 0.3s ease;
+    color: white;
+}
+.sub-button:hover span {
+    animation: vanish 0.5s forwards;
+    color: #308196;
+}
+.section1 {
+    width: 40%; 
+    float: left;
+    margin-left: 20px;
+}
+.section2 {
+    width: 40%;
+    float: left;
+    margin-left: 30px;
+}
+
+.billTable {
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid #308196;
+}
+.billTable .blueRow td {
+    color: white;
+}
+.billTable .blueRow {
+    background-color: #2da39d;
+}
+.billTable td {
+    border: 0.5px solid #308196;
+}
+.billTable tr {
+    background-color: white;
+}
+.billTable tr:last-child {
+    background-color: #2da39d;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.selected-option {
+    cursor: pointer;
+}
+
+.options {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    border-radius: 4px;
+    width: 220px;
+    height: 50px;
+    overflow-y: auto;
+}
+.options input {
+	appearance: none;
+	padding: 0;
+	margin: 0;
+	outline: none;
+	pointer-events: none;
+}
+
+.option {
+    display: block;
+    padding: 5px;
+}
+
+.selected-options-container {
+    margin-top: 5px;
+}
+
+/*Details page*/
+#fullName, #email, #email2 {
+    width: 250px;
+}
+
+.personalDetails {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.personalDetails h3{
+    color: #092d4b;
+}
+
+/*Payment page*/
+.container {
+    width: 100%;
+    height: 100%;
+    margin: 3% auto;
+}
+
+.ui {
+    border: 0;
+    box-shadow: 0 0 10*x 0 rgba(149, 184, 209, .5);
+    border-radius: 10px;
+    width: 60%;
+    margin: 0 auto;
+    padding: 10%;
+    display: flex;
+    gap: 20px;
+    background-color: rgb(0, 0, 0);
+}
+
+.container-left {
+    width: 50%;
+}
+
+#credit-card {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-size: 1.1rem;
+    color: white;
+    text-transform: uppercase;
+}
+
+.number-container, .name-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.expiration-container, .cvv-container {
+    width: 50%;
+}
+
+.infos-container {
+    display: flex;
+}
+
+#credit-card input {
+    border: 0;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #333333;
+    color: white;
+    font-weight: 600;
+    font-size: 1.1rem;
+    outline: 0;
+    width: 90%;
+}
+
+#credit-card input [type="text"]:focus{
+    border: 1px solid #95b8d1
+}
+
+#credit-card input#valid-thru-text, input#cvv-text {
+    width: 80%;
+}
+
+#credit-card input[type="submit"] {
+    width: 95%;
+    background-color: #008cb1;
+    cursor: pointer;
+}

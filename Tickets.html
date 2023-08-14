@@ -1,0 +1,227 @@
+<html>
+  <head>
+    <title>Turtle Haven</title>
+    <meta name=viewport content="width=device-width,initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Albert Sans' rel='stylesheet'>
+  </head>
+  
+  <link href="Style.css" rel="stylesheet">
+  <link href="BuyTickets.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="icon" href="Pictures/turtleLogo.jpg" type="image/x-icon">
+
+  <body>
+    <header>
+      <h1>Buy Tickets</h1>
+      <div class="breadcrumb-container">
+        <ul class="breadcrumb">
+          <li><a href="Hikkaduwa.html">Hikkaduwa Hatchery</a></li> 
+          <li class="active">Tickets</li>
+        </ul>
+      </div>
+    </header>
+
+    <div class="booking">
+      <div class="sectionContainer" x-data="ticketSelection()" x-init="loadFromLocalStorage">
+        <div class="calendar" x-data="{ dateInput: '', dateSelected() { return this.dateInput; } }">
+          <div class="section1">
+            <h2>Dates</h2>
+            <label for="dateInput">Select a date:</label>
+            <input type="date" id="dateInput" x-model="dateInput" x-on:input="dateSelected() { 
+              localStorage.setItem('chosenDate', this.dateInput);
+              return this.dateInput;
+            }">
+
+            <div class="dropdown" onclick="toggleOptions()">
+              <div class="selected-option">Select Time(s):</div>
+              <br>
+              <div class="options" id="options">
+                <label><input type="checkbox" value="07.00am - 08.00am" onchange="toggleSelection(this)" x-on:input="duration">07.00am - 08.00am</label>
+                <label><input type="checkbox" value="08.00am - 09.00am" onchange="toggleSelection(this)" x-on:input="duration">08.00am - 09.00am</label>
+                <label><input type="checkbox" value="09.00am - 10.00am" onchange="toggleSelection(this)" x-on:input="duration">09.00am - 10.00am</label>
+                <label><input type="checkbox" value="10.00am - 11.00am (Peak)" onchange="toggleSelection(this)" x-on:input="duration">10.00am - 11.00am (Peak)</label>
+                <label><input type="checkbox" value="11.00am - 12.00pm (Peak)" onchange="toggleSelection(this)" x-on:input="duration">11.00am - 12.00pm (Peak)</label>
+                <label><input type="checkbox" value="12.00pm - 13.00pm (Peak)" onchange="toggleSelection(this)" x-on:input="duration">12.00pm - 13.00pm (Peak)</label>
+                <label><input type="checkbox" value="13.00pm - 14.00pm" onchange="toggleSelection(this)" x-on:input="duration">13.00pm - 14.00pm</label>
+                <label><input type="checkbox" value="14.00pm - 15.00pm" onchange="toggleSelection(this)" x-on:input="duration">14.00pm - 15.00pm</label>
+                <label><input type="checkbox" value="15.00pm - 16.00pm (Peak)" onchange="toggleSelection(this)" x-on:input="duration">15.00pm - 16.00pm (Peak)</label>
+                <label><input type="checkbox" value="16.00pm - 17.00pm (Peak)" onchange="toggleSelection(this)" x-on:input="duration">16.00pm - 17.00pm (Peak)</label>
+                <label><input type="checkbox" value="17.00pm - 18.00pm (Peak)" onchange="toggleSelection(this)" x-on:input="duration">17.00pm - 18.00pm (Peak)</label>
+              </div>
+            </div>
+      
+            <div class="selected-options-container" id="selected-options-container"></div>
+
+            <h2>Guests</h2>
+            <label for="SriLankanAdults">Sri Lankan Adults:</label>
+            <input type="number" id="SriLankanAdults" min="0" x-model="tickets.SriLankanAdults" x-on:input="calculateSriLankanAdultsCost()">
+
+            <br><br><br>
+        
+            <label for="SriLankanChildren">Sri Lankan Children:</label>
+            <input type="number" id="SriLankanChildren" min="0" x-model="tickets.SriLankanChildren" x-on:input="calculateSriLankanChildrenCost()">
+
+            <br><br><br>
+        
+            <label for="ForeignAdults">Foreign Adults:</label>
+            <input type="number" id="ForeignAdults" min="0" x-model="tickets.ForeignAdults" x-on:input="calculateForeignAdultsCost()">
+
+            <br><br><br>
+
+            <label for="ForeignChildren">Foreign Children:</label>
+            <input type="number" id="ForeignChildren" min="0" x-model="tickets.ForeignChildren" x-on:input="calculateForeignChildrenCost()">
+
+            <br><br><br>
+
+            <label for="Infant">Infant:</label>
+            <input type="number" id="Infant" min="0" x-model="tickets.Infant" x-on:input="infantsCost">
+
+            <br><br><br>
+            <button class="sub-button">
+              <a href="Details.html">
+                <span>Continue With Purchase</span>
+              </a>
+            </button>
+            <br><br><br>
+          </div>
+
+          <div class="section2">
+            <table class="billTable">
+              <tbody>
+                <tr>
+                  <td>Date</td>
+                  <td colspan="2">2023-08-14</td>
+                </tr>
+                <tr>
+                  <td>Time</td>
+                  <td colspan="2">08 00am - 11 00am</td>
+                </tr>
+                <tr>
+                  <td>Duration</td>
+                  <td x-text="duration" colspan="2"><span id="durationSpan"></span></td>
+                </tr>
+                <tr class="blueRow">
+                  <td>Ticket Type</td>
+                  <td>Tickets</td>
+                  <td>Charges</td>
+                </tr>
+                <tr>
+                  <td>Sri Lankan Adults</td>
+                  <td x-text="sriLankanAdultsTickets"></td>
+                  <td x-text="calculateSriLankanAdultsCost()"></td>
+                </tr>
+                <tr>
+                  <td>Sri Lankan Children</td>
+                  <td x-text="sriLankanChildrenTickets"></td>
+                  <td x-text="calculateSriLankanChildrenCost()"></td>
+                </tr>
+                <tr>
+                  <td>Foreign Adults</td>
+                  <td x-text="foreignAdultsTickets"></td>
+                  <td x-text="calculateForeignAdultsCost()"></td>
+                </tr>
+                <tr>
+                  <td>Foreign Children</td>
+                  <td x-text="foreignChildrenTickets"></td>
+                  <td x-text="calculateForeignChildrenCost()"></td>
+                </tr>
+                <tr>
+                  <td>Infants</td>
+                  <td x-text="infantsTickets"></td>
+                  <td x-text="infantsCost"></td>
+                </tr>
+                <tr class="blueRow">
+                  <td>Total</td>
+                  <td x-text="totalTickets"></td>
+                  <td x-text="totalCharges"></td>
+                </tr>
+              </tbody>
+            </table>  
+          </div>
+          
+        </div>
+      </div>
+
+      <div class="Table">
+        <div id="table">
+          <table>
+            <tr>
+              <th>Type of ticket</th>
+              <th>Normal Hours</th>
+              <th>Peak Hours</th>
+            </tr>
+            <tr>
+              <td>Foreigner Adult</td>
+              <td>10 USD</td>
+              <td>13 USD</td>
+            </tr>
+            <tr>
+              <td>Foreigner Child </td>
+              <td>5 USD</td>
+              <td>8 USD</td>
+            </tr>
+            <tr>
+              <td>SL Adult</td>
+              <td>4 USD</td>
+              <td>6 USD</td>
+            </tr>
+            <tr>
+              <td>SL Child</td>
+              <td>2 USD</td>
+              <td>3 USD</td>
+            </tr>
+            <tfoot>
+              <tr>
+                <td colspan="3">Entrance is completely free for infants (under 4 years) - SL or Foreigner</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script src="Tickets.js"></script>
+    <script src="https://unpkg.com/alpinejs@3.12.3/dist/cdn.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+    <footer>
+        <div class="footer-container">
+          <div class="socialIcons">
+            <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://twitter.com/"><i class="fa-brands fa-twitter"></i></a> 
+          </div>
+          
+          <div class="footerNav">
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="Categories.html">Turtle Categories</a></li>
+              <li><a href="Hikkaduwa.html">Hikkaduwa Hatchery</a></li>
+              <li><a href="Bentota.html">Bentota Hatchery</a></li>
+              <li><a href="Kosgoda.html">Kosgoda Hatchery</a></li>
+              <li><a href="Threats.html">Threats</a></li>
+              <li><a href="Purchase.html">Purchase & Donate</a></li>
+              <li><a href="Gallery.html">Gallery</a></li>
+            </ul>
+          </div>
+
+          <!--References:
+
+          Websites:
+
+          Jayawardena, J. (2022) Turtles and tortoises of Sri Lanka, AmazingLanka.com. Available at: https://amazinglanka.com/wp/turtles-of-of-sri-lanka/ (Accessed: 27 May 2023). 
+          What is a turtle hatchery? (no date) Thrillophilia. Available at: https://www.thrillophilia.com/attractions/sea-turtle-hatchery (Accessed: 27 May 2023). 
+          Mahela (no date) Most interesting sea turtle facts from Sri Lanka, Mahoora Tented Safari Camps Sri Lanka. Available at: https://www.mahoora.lk/most-interesting-sea-turtle-facts-from-sri-lanka.html (Accessed: 27 May 2023). 
+          Green sea turtle (2023) Wikipedia. Available at: https://en.wikipedia.org/wiki/Green_sea_turtle (Accessed: 27 May 2023). 
+          Leatherback Sea Turtle (2023) Wikipedia. Available at: https://en.wikipedia.org/wiki/Leatherback_sea_turtle (Accessed: 27 May 2023). 
+          Olive ridley sea turtle (2023) Wikipedia. Available at: https://en.wikipedia.org/wiki/Olive_ridley_sea_turtle (Accessed: 27 May 2023). 
+          Hatchery (2022) Wikipedia. Available at: https://en.wikipedia.org/wiki/Hatchery (Accessed: 27 May 2023). 
+
+          Images:
+
+          Pexels (no date a) Free Stock Photos, Royalty Free Stock Images & Copyright Free Pictures · Pexels. Available at: https://www.pexels.com/. 
+        <-->
+      </div>
+    </footer>
+  </body>
+</html>

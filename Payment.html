@@ -1,0 +1,175 @@
+<html>
+  <head>
+    <title>Turtle Haven</title>
+    <meta name=viewport content="width=device-width,initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Albert Sans' rel='stylesheet'>
+  </head>
+  
+  <link href="Style.css" rel="stylesheet">
+  <link href="BuyTickets.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="icon" href="Pictures/turtleLogo.jpg" type="image/x-icon">
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+
+  <body>
+    <header>
+      <h1>Buy Tickets</h1>
+      <div class="breadcrumb-container">
+        <ul class="breadcrumb">
+          <li><a href="Hikkaduwa.html">Hikkaduwa Hatchery</a></li> 
+          <li><a href="Tickets.html">Tickets</a></li>
+          <li><a href="Details.html">Details</a></li>
+          <li class="active">Payments</li>
+        </ul>
+      </div>
+    </header>
+
+      <main class="container">
+        <section class="ui">
+          <div class="container-left">
+            <form id="credit-card">
+              <div class="number-container">
+                <label>Card Number</label>
+                <input type="text" name="card-number" id="card-number" maxlength="19" placeholder="1234 1234 1234 1234" required onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+              </div>
+              <div class="name-container">
+                <label>Holder</label>
+                <input type="text" name="name-text" id="name-text" maxlength="30" placeholder="Noah Jacob" required onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || event.key == ' '">
+              </div>
+              <div class="infos-container">
+                <div class="expiration-container">
+                  <label>Valid-thru</label>
+                  <input type="text" name="valid-thru-text" id="valid-thru-text" maxlength="5" placeholder="01/30" required onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                </div>
+                <div class="cvv-container">
+                  <label>CVV</label>
+                  <input type="text" name="cvv-text" id="cvv-text" maxlength="4" placeholder="1234" required onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                </div>
+              </div>
+                <input type="submit" value="ADD" id="add">
+            </form>
+          </div>
+
+          <div class="container-right" x-data="RetrieveData()">
+            <table class="billTable">
+              <tbody>
+                <tr>
+                  <td>Name</td>
+                  <td x-text="getName()" colspan="2"></td>
+                </tr>
+                <tr>
+                  <td>Date</td>
+                  <td colspan="2">2023-08-14</td>
+                </tr>
+                <tr>
+                  <td>Time</td>
+                  <td colspan="2">08 00am - 11 00am</td>
+                </tr>
+                <tr>
+                  <td>Duration</td>
+                  <td x-text="getDuration()" colspan="2"></td>
+                </tr>
+                <tr>
+                  <td>Mobile</td>
+                  <td x-text="getMobile()" colspan="2"></td>
+                </tr>
+                <tr>
+                  <td>Email</td>
+                  <td x-text="getEmail()" colspan="2"></td>
+                </tr>
+                <tr>
+                  <td>Gender</td>
+                  <td x-text="getGender()" colspan="2"></td>
+                </tr>
+                <tr class="blueRow">
+                  <td>Ticket Type</td>
+                  <td>Tickets</td>
+                  <td>Charges</td>
+                </tr>
+                <tr>
+                  <td>Sri Lankan Adults</td>
+                  <td x-text="getSLAdults()"></td>
+                  <td x-text="getSLAdultsCost()"></td>
+                </tr>
+                <tr>
+                  <td>Sri Lankan Children</td>
+                  <td x-text="getSLChildren()"></td>
+                  <td x-text="getSLChildrenCost()"></td>
+                </tr>
+                <tr>
+                  <td>Foreign Adults</td>
+                  <td x-text="getForAdults()"></td>
+                  <td x-text="getForAdultsCost()"></td>
+                </tr>
+                <tr>
+                  <td>Foreign Children</td>
+                  <td x-text="getForChildren()"></td>
+                  <td x-text="getForChildrenCost()"></td>
+                </tr>
+                <tr>
+                  <td>Infants</td>
+                  <td x-text="getinfants()"></td>
+                  <td x-text="getinfantsCost()"></td>
+                </tr>
+                <tr class="blueRow">
+                  <td>Total</td>
+                  <td x-text="getTotal()"></td>
+                  <td x-text="getTotalCost()"></td>
+                </tr>
+              </tbody>
+            </table>  
+          </div>
+        </section>
+      </main>
+
+      <button class="main-button">
+        <a href="Confirmation.html">
+          <span>Pay</span>
+        </a>
+      </button>
+
+      <script src="Payment.js"></script>
+      <script src="Summary.js"></script>
+
+      <footer>
+        <div class="footer-container">
+          <div class="socialIcons">
+            <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://twitter.com/"><i class="fa-brands fa-twitter"></i></a> 
+          </div>
+          
+          <div class="footerNav">
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="Categories.html">Turtle Categories</a></li>
+              <li><a href="Hikkaduwa.html">Hikkaduwa Hatchery</a></li>
+              <li><a href="Bentota.html">Bentota Hatchery</a></li>
+              <li><a href="Kosgoda.html">Kosgoda Hatchery</a></li>
+              <li><a href="Threats.html">Threats</a></li>
+              <li><a href="Purchase.html">Purchase & Donate</a></li>
+              <li><a href="Gallery.html">Gallery</a></li>
+            </ul>
+          </div>
+
+          <!--References:
+
+          Websites:
+
+          Jayawardena, J. (2022) Turtles and tortoises of Sri Lanka, AmazingLanka.com. Available at: https://amazinglanka.com/wp/turtles-of-of-sri-lanka/ (Accessed: 27 May 2023). 
+          What is a turtle hatchery? (no date) Thrillophilia. Available at: https://www.thrillophilia.com/attractions/sea-turtle-hatchery (Accessed: 27 May 2023). 
+          Mahela (no date) Most interesting sea turtle facts from Sri Lanka, Mahoora Tented Safari Camps Sri Lanka. Available at: https://www.mahoora.lk/most-interesting-sea-turtle-facts-from-sri-lanka.html (Accessed: 27 May 2023). 
+          Green sea turtle (2023) Wikipedia. Available at: https://en.wikipedia.org/wiki/Green_sea_turtle (Accessed: 27 May 2023). 
+          Leatherback Sea Turtle (2023) Wikipedia. Available at: https://en.wikipedia.org/wiki/Leatherback_sea_turtle (Accessed: 27 May 2023). 
+          Olive ridley sea turtle (2023) Wikipedia. Available at: https://en.wikipedia.org/wiki/Olive_ridley_sea_turtle (Accessed: 27 May 2023). 
+          Hatchery (2022) Wikipedia. Available at: https://en.wikipedia.org/wiki/Hatchery (Accessed: 27 May 2023). 
+
+          Images:
+
+          Pexels (no date a) Free Stock Photos, Royalty Free Stock Images & Copyright Free Pictures · Pexels. Available at: https://www.pexels.com/. 
+        <-->
+      </div>
+    </footer>
+  </body>
+  </html>
