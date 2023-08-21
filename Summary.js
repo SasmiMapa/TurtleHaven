@@ -1,9 +1,22 @@
 function RetrieveData(){
 
-    const timeDuration = JSON.parse(localStorage.getItem("Duration"));
+    const timeDuration = localStorage.getItem("Duration");
 
     function getDuration(){
         return timeDuration;
+    }
+
+    const start = localStorage.getItem("startTime");
+    const end = localStorage.getItem("endTime");
+
+    function getTime(){
+        return (start + "-" + end);
+    }
+
+    const date = localStorage.getItem("chosenDate");
+
+    function getDate() {
+        return date;
     }
 
     const slAdults = JSON.parse(localStorage.getItem("sLadults"));
@@ -81,6 +94,10 @@ function RetrieveData(){
 
     return {
         getDuration: function(){ return timeDuration; },
+
+        getTime: function() { return (start + " - " + end); },
+
+        getDate: function() { return date; },
 
         getSLAdults: function() { return slAdults; },
         getSLChildren: function() { return slChildren; },
