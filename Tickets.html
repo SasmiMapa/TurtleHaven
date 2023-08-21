@@ -23,30 +23,32 @@
 
     <div class="booking">
       <div class="sectionContainer" x-data="ticketSelection()" x-init="loadFromLocalStorage">
-        <div class="calendar" x-data="{ dateInput: '', dateSelected() { return this.dateInput; } }">
+        <div class="calendar" x-data="{ dateInput: '', dateSelected() { 
+          localStorage.setItem('chosenDate', this.dateInput);
+          } }">
           <div class="section1">
             <h2>Dates</h2>
             <label for="dateInput">Select a date:</label>
-            <input type="date" id="dateInput" x-model="dateInput" x-on:input="dateSelected() { 
-              localStorage.setItem('chosenDate', this.dateInput);
-              return this.dateInput;
-            }">
+            <input type="date" id="dateInput" x-model="dateInput" x-on:input="dateSelected()">
+
+            <br><br><br>
 
             <div class="dropdown" onclick="toggleOptions()">
+              <h2>Times</h2>
               <div class="selected-option">Select Time(s):</div>
               <br>
               <div class="options" id="options">
-                <label><input type="checkbox" value="07.00am - 08.00am" onchange="toggleSelection(this)" x-on:input="duration">07.00am - 08.00am</label>
-                <label><input type="checkbox" value="08.00am - 09.00am" onchange="toggleSelection(this)" x-on:input="duration">08.00am - 09.00am</label>
-                <label><input type="checkbox" value="09.00am - 10.00am" onchange="toggleSelection(this)" x-on:input="duration">09.00am - 10.00am</label>
-                <label><input type="checkbox" value="10.00am - 11.00am (Peak)" onchange="toggleSelection(this)" x-on:input="duration">10.00am - 11.00am (Peak)</label>
-                <label><input type="checkbox" value="11.00am - 12.00pm (Peak)" onchange="toggleSelection(this)" x-on:input="duration">11.00am - 12.00pm (Peak)</label>
-                <label><input type="checkbox" value="12.00pm - 13.00pm (Peak)" onchange="toggleSelection(this)" x-on:input="duration">12.00pm - 13.00pm (Peak)</label>
-                <label><input type="checkbox" value="13.00pm - 14.00pm" onchange="toggleSelection(this)" x-on:input="duration">13.00pm - 14.00pm</label>
-                <label><input type="checkbox" value="14.00pm - 15.00pm" onchange="toggleSelection(this)" x-on:input="duration">14.00pm - 15.00pm</label>
-                <label><input type="checkbox" value="15.00pm - 16.00pm (Peak)" onchange="toggleSelection(this)" x-on:input="duration">15.00pm - 16.00pm (Peak)</label>
-                <label><input type="checkbox" value="16.00pm - 17.00pm (Peak)" onchange="toggleSelection(this)" x-on:input="duration">16.00pm - 17.00pm (Peak)</label>
-                <label><input type="checkbox" value="17.00pm - 18.00pm (Peak)" onchange="toggleSelection(this)" x-on:input="duration">17.00pm - 18.00pm (Peak)</label>
+                <label><input type="checkbox" value="07.00am - 08.00am" onchange="toggleSelection(this)">07.00am - 08.00am</label>
+                <label><input type="checkbox" value="08.00am - 09.00am" onchange="toggleSelection(this)">08.00am - 09.00am</label>
+                <label><input type="checkbox" value="09.00am - 10.00am" onchange="toggleSelection(this)">09.00am - 10.00am</label>
+                <label><input type="checkbox" value="10.00am - 11.00am (Peak)" onchange="toggleSelection(this)">10.00am - 11.00am (Peak)</label>
+                <label><input type="checkbox" value="11.00am - 12.00pm (Peak)" onchange="toggleSelection(this)">11.00am - 12.00pm (Peak)</label>
+                <label><input type="checkbox" value="12.00pm - 13.00pm (Peak)" onchange="toggleSelection(this)">12.00pm - 13.00pm (Peak)</label>
+                <label><input type="checkbox" value="13.00pm - 14.00pm" onchange="toggleSelection(this)">13.00pm - 14.00pm</label>
+                <label><input type="checkbox" value="14.00pm - 15.00pm" onchange="toggleSelection(this)">14.00pm - 15.00pm</label>
+                <label><input type="checkbox" value="15.00pm - 16.00pm (Peak)" onchange="toggleSelection(this)">15.00pm - 16.00pm (Peak)</label>
+                <label><input type="checkbox" value="16.00pm - 17.00pm (Peak)" onchange="toggleSelection(this)">16.00pm - 17.00pm (Peak)</label>
+                <label><input type="checkbox" value="17.00pm - 18.00pm (Peak)" onchange="toggleSelection(this)">17.00pm - 18.00pm (Peak)</label>
               </div>
             </div>
       
@@ -90,15 +92,15 @@
               <tbody>
                 <tr>
                   <td>Date</td>
-                  <td colspan="2">2023-08-14</td>
+                  <td colspan="2" x-text="dates"></td>
                 </tr>
                 <tr>
                   <td>Time</td>
-                  <td colspan="2">08 00am - 11 00am</td>
+                  <td colspan="2"><span id="timeRange"></span></td>
                 </tr>
                 <tr>
                   <td>Duration</td>
-                  <td x-text="duration" colspan="2"><span id="durationSpan"></span></td>
+                  <td id="duration-container" colspan="2"></td>
                 </tr>
                 <tr class="blueRow">
                   <td>Ticket Type</td>
@@ -138,7 +140,6 @@
               </tbody>
             </table>  
           </div>
-          
         </div>
       </div>
 

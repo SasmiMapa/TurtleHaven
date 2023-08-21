@@ -34,16 +34,14 @@
           <input type="text" id="fullName" required onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || event.key == ' '">
   
           <br><br><br>
-      
+
           <label for="email">Email:</label>
-          <input type="email" id="email" required>
+          <input type="email" id="email" placeholder="JohnDoe@gmail.com" required>
   
           <br><br><br>
       
           <label for="email2">Confirm Email:</label>
-          <input type="email" id="email2" required>
-  
-          <p id="result"></p>
+          <input type="email" id="email2" placeholder="JohnDoe@gmail.com" required>
     
           <br><br><br>
     
@@ -52,7 +50,7 @@
             <option value="Male">Male</option>
             <option value="Female">Female</option>
           </select>
-  
+
           <br><br><br>
   
           <label for="countryCode">Country Code:</label>
@@ -273,30 +271,41 @@
             <option data-countryCode="ZW" value="263">Zimbabwe (+263)</option>
           </select>
   
+          <br><br><br>
+          
           <label for="phoneNumber">Phone Number:</label>
           <input type="tel" id="phoneNumber" maxlength="10" onkeypress="return event.charCode >= 48 && event.charCode <= 57" required>
   
-          <br><br><br>
-  
         </form> 
+
+        <br><br><br>
+
+        <button class="sub-button" onclick="saveData()">Submit</button>
+
+        <br><br><br>
+
+        <button class="sub-button">
+          <a href="Payment.html">
+            <span>Continue With Purchase</span>
+          </a>
+        </button>
+
       </div> 
-  
-      <button onclick="saveData()">Submit</button>
   
       <div class="bill" x-data="RetrieveData()">
         <table class="billTable">
           <tbody>
             <tr>
               <td>Name</td>
-              <td x-text="getName()" colspan="2"></td>
+              <td id="nameCell" colspan="2"></td>
             </tr>
             <tr>
               <td>Date</td>
-              <td colspan="2">2023-08-14</td>
+              <td x-text="getDate()" colspan="2"></td>
             </tr>
             <tr>
               <td>Time</td>
-              <td colspan="2">08 00am - 11 00am</td>
+              <td x-text="getTime()" colspan="2"></td>
             </tr>
             <tr>
               <td>Duration</td>
@@ -304,15 +313,15 @@
             </tr>
             <tr>
               <td>Mobile</td>
-              <td x-text="getMobile()" colspan="2"></td>
+              <td id="mobileCell" colspan="2"></td>
             </tr>
             <tr>
               <td>Email</td>
-              <td x-text="getEmail()" colspan="2"></td>
+              <td id="emailCell" colspan="2"></td>
             </tr>
             <tr>
               <td>Gender</td>
-              <td x-text="getGender()" colspan="2"></td>
+              <td id="genderCell" colspan="2"></td>
             </tr>
             <tr class="blueRow">
               <td>Ticket Type</td>
@@ -350,18 +359,11 @@
               <td x-text="getTotalCost()"></td>
             </tr>
           </tbody>
-        </table>  
+        </table> 
       </div>
     </div>
 
-    <button class="main-button">
-      <a href="Payment.html">
-        <span>Continue With Purchase</span>
-      </a>
-    </button>
-
     <script src="Details.js"></script>
-    <script src="Summary.js"></script>
   
     <footer>
         <div class="footer-container">

@@ -25,7 +25,15 @@
       </div>
     </header>
 
-    <div x-data="RetrieveData()">
+    <div class="confirmed">
+      <h3>Confirmation</h3>
+      <p>
+        Thank you for your order. Your order has been confirmed with us. 
+        You can show this confirmation at the entrance. Following is the summary of your order.
+      </p>
+    </div>
+    <br>
+    <div class="summaryTable" x-data="RetrieveData()">
       <table class="billTable">
         <tbody>
           <tr>
@@ -34,11 +42,11 @@
           </tr>
           <tr>
             <td>Date</td>
-            <td colspan="2">2023-08-14</td>
+            <td x-text="getDate()" colspan="2"></td>
           </tr>
           <tr>
             <td>Time</td>
-            <td colspan="2">08 00am - 11 00am</td>
+            <td x-text="getTime()" colspan="2"></td>
           </tr>
           <tr>
             <td>Duration</td>
@@ -92,7 +100,7 @@
             <td x-text="getTotalCost()"></td>
           </tr>
         </tbody>
-      </table>  
+      </table> 
     </div>
 
     <script src="Tickets.js"></script>

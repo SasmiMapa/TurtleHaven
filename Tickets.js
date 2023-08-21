@@ -4,33 +4,41 @@ const selectedOptions = JSON.parse(localStorage.getItem("selectedOptions")) || [
 const regular = [];
 const peak = [];
 
-const timeSlot = selectedOptions || '';
-
 function toggleOptions() {
   const options = document.getElementById("options");
   options.style.display = options.style.display === "block" ? "none" : "block";
 }
 
-function toggleSelection(checkbox) {
-  const selectedOptionsContainer = document.getElementById("selected-options-container");
+let firstStartTime = null;
+let lastEndTime = null;
 
+function toggleSelection(checkbox) {
   if (checkbox.checked) {
     const selectedValue = checkbox.value;
     const lastSelectedValue = selectedOptions.length > 0 ? selectedOptions[selectedOptions.length - 1] : null;
 
-
     if (!lastSelectedValue || isConsecutive(lastSelectedValue, selectedValue)) {
       selectedOptions.push(selectedValue);
-      if (checkbox.checked) {
-      const selectedValue = checkbox.value;
-      
       if (selectedValue.includes("(Peak)")) {
         peak.push(selectedValue);
-      } else {;
+      } else {
         regular.push(selectedValue);
       }
-    }
+      const timeMatches = selectedValue.match(/(\d+\.\d+\w*)\s*-\s*(\d+\.\d+\w*)/);
+      if (timeMatches) {
+        const startTime = timeMatches[1];
+        const endTime = timeMatches[2];
 
+        if (firstStartTime === null) {
+          firstStartTime = startTime;
+        }
+        lastEndTime = endTime;
+
+        document.getElementById("timeRange").textContent = `${firstStartTime} - ${lastEndTime}`;
+
+        localStorage.setItem("startTime", firstStartTime.toString());
+        localStorage.setItem("endTime", lastEndTime.toString());
+      }
     } else {
       alert("Please select consecutive time slots.");
       checkbox.checked = false;
@@ -40,17 +48,47 @@ function toggleSelection(checkbox) {
     if (index > -1) {
       selectedOptions.splice(index, 1);
     }
+
+    if (selectedOptions.length === 0) {
+      firstStartTime = null;
+      lastEndTime = null;
+    } else {
+      // Update the last end time when an unchecked slot is the last selected slot
+      if (lastEndTime === selectedValue.match(/(\d+\.\d+\w*)\s*-\s*(\d+\.\d+\w*)/)[2]) {
+        lastEndTime = selectedOptions[selectedOptions.length - 1].match(/(\d+\.\d+\w*)\s*-\s*(\d+\.\d+\w*)/)[2];
+      }
+    }
+
+    // Update the time range display
+    document.getElementById("timeRange").textContent = `${firstStartTime} - ${lastEndTime}`;
+
+    localStorage.setItem("startTime", firstStartTime.toString());
+    localStorage.setItem("endTime", lastEndTime.toString());
   }
 
+  updateDisplay();
+}
+
+function updateDisplay() {
+  const selectedOptionsContainer = document.getElementById("selected-options-container");
   const selectedOptionsHtml = selectedOptions.map(opt => `<div class="selected-option">${opt}</div>`).join('');
   selectedOptionsContainer.innerHTML = selectedOptionsHtml;
-
 
   localStorage.setItem("selectedOptions", JSON.stringify(selectedOptions));
   localStorage.setItem("regularHours", JSON.stringify(regular));
   localStorage.setItem("peakHours", JSON.stringify(peak));
-  ticketSelection();
+
   updateDurationDisplay();
+}
+
+function updateDurationDisplay() {
+  const selectedOptionsContainer = document.getElementById("selected-options-container");
+  const durationContainer = document.getElementById("duration-container");
+
+  const timeDuration = JSON.parse(localStorage.getItem("selectedOptions")).length;
+  durationContainer.textContent = timeDuration + " hours";
+
+  localStorage.setItem("Duration", timeDuration.toString());
 }
 
 function isConsecutive(previousValue, currentValue) {
@@ -73,12 +111,15 @@ function isConsecutive(previousValue, currentValue) {
 // Display the selected options from local storage on page load
 window.onload = function () {
   const selectedOptionsContainer = document.getElementById("selected-options-container");
+  const durationContainer = document.getElementById("duration-container");
+
   const selectedOptionsHtml = selectedOptions.map(opt => `<div class="selected-option">${opt}</div>`).join('');
   selectedOptionsContainer.innerHTML = selectedOptionsHtml;
+
+  updateDurationDisplay();
 };
 
 const selectedTimes = JSON.parse(localStorage.getItem("selectedOptions"));
-console.log(selectedTimes.length);
 
 function ticketSelection() {
 
@@ -89,21 +130,6 @@ function ticketSelection() {
   const minValue = currentDate.getFullYear() + "-" + currentMonth + "-" + currentDay;
   value.setAttribute("min", minValue);
 
-  // const arrayLength = selectedOptions.length;
-  // console.log(arrayLength);
-
-  const regularHours = regular.length;
-  console.log(regularHours);
-
-  const peakHours = peak.length;
-  console.log(peakHours);
-
-  function updateDurationDisplay() {
-    const durationSpan = document.getElementById("durationSpan");
-    const arrayLength = selectedOptions.length;
-    durationSpan.textContent = arrayLength + " hours";
-  }
-
   return {
     tickets: {
       SriLankanAdults: 0,
@@ -112,14 +138,8 @@ function ticketSelection() {
       ForeignChildren: 0,
       Infant: 0,
     },
-    dateInput : "",
+    dateInput: localStorage.getItem("chosenDate") || "",
 
-    
-    duration() {
-      updateDurationDisplay(); // Update duration display dynamically
-      localStorage.setItem("Duration", selectedOptions.length);
-      return (selectedOptions.length + " hours");
-    },
     get sriLankanAdultsTickets(){
       localStorage.setItem("sLadults", this.tickets.SriLankanAdults.toString());
       return isNaN(this.tickets.SriLankanAdults) ? 0 : this.tickets.SriLankanAdults;
@@ -203,27 +223,13 @@ function ticketSelection() {
 
       return isNaN(totalTicketCost) ? 0 : totalTicketCost;
     },
-    get time(){
-      if (regular.length > 0 || peak.length > 0) {
-        const startTime = selectedOptions[0].split(" - ")[0];
-        const endTime = selectedOptions[selectedOptions.length - 1].split(" - ")[1];
-        const totalTime = '${startTime} - ${endTime}'; 
-        
-        localStorage.setItem("totalTime", totalTime.toString());
-        
-        return totalTime;
-      }
-    },
 
     dateSelected() { 
       localStorage.setItem('chosenDate', this.dateInput);
-      return this.dateInput;
     },
 
     get dates() {
-      const selectedDate = JSON.parse(localStorage.getItem("chosenDate"));
-
-      return selectedDate;
+      return this.dateInput;
     },
     
     loadFromLocalStorage() {

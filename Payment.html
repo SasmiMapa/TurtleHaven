@@ -27,7 +27,7 @@
 
       <main class="container">
         <section class="ui">
-          <div class="container-left">
+          <div class="container-left" x-data="RetrieveData()">
             <form id="credit-card">
               <div class="number-container">
                 <label>Card Number</label>
@@ -44,11 +44,20 @@
                 </div>
                 <div class="cvv-container">
                   <label>CVV</label>
-                  <input type="text" name="cvv-text" id="cvv-text" maxlength="4" placeholder="1234" required onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                  <input type="text" name="cvv-text" id="cvv-text" maxlength="3" placeholder="123" required onkeypress="return event.charCode >= 48 && event.charCode <= 57">
                 </div>
               </div>
-                <input type="submit" value="ADD" id="add">
             </form>
+
+            <button class="sub-button">
+              <a href="Confirmation.html">
+                <span>
+                  Pay $
+                  <span x-text="getTotalCost()"></span>
+                </span>
+              </a>
+            </button>
+
           </div>
 
           <div class="container-right" x-data="RetrieveData()">
@@ -60,11 +69,11 @@
                 </tr>
                 <tr>
                   <td>Date</td>
-                  <td colspan="2">2023-08-14</td>
+                  <td x-text="getDate()" colspan="2"></td>
                 </tr>
                 <tr>
                   <td>Time</td>
-                  <td colspan="2">08 00am - 11 00am</td>
+                  <td x-text="getTime()" colspan="2"></td>
                 </tr>
                 <tr>
                   <td>Duration</td>
@@ -118,16 +127,11 @@
                   <td x-text="getTotalCost()"></td>
                 </tr>
               </tbody>
-            </table>  
+            </table> 
+
           </div>
         </section>
       </main>
-
-      <button class="main-button">
-        <a href="Confirmation.html">
-          <span>Pay</span>
-        </a>
-      </button>
 
       <script src="Payment.js"></script>
       <script src="Summary.js"></script>

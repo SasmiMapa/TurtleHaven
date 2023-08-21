@@ -86,7 +86,9 @@ select {
 }
 .sub-button:hover span {
     animation: vanish 0.5s forwards;
-    color: #308196;
+}
+.sub-button:hover{
+    background-color: #2da39d;
 }
 .section1 {
     width: 40%; 
@@ -103,6 +105,7 @@ select {
     border-collapse: separate;
     border-spacing: 0;
     border: 1px solid #308196;
+    margin-top: 10px;
 }
 .billTable .blueRow td {
     color: white;
@@ -154,6 +157,7 @@ select {
 
 .selected-options-container {
     margin-top: 5px;
+    color: #308196;
 }
 
 /*Details page*/
@@ -182,25 +186,34 @@ select {
     border: 0;
     box-shadow: 0 0 10*x 0 rgba(149, 184, 209, .5);
     border-radius: 10px;
-    width: 60%;
+    width: 90%;
     margin: 0 auto;
-    padding: 10%;
     display: flex;
     gap: 20px;
-    background-color: rgb(0, 0, 0);
+}
+
+.ui label {
+    color: #092d4b;
+    font-size: 17px;
 }
 
 .container-left {
-    width: 50%;
+    width: 30%;
+}
+
+.container-right {
+    width: 60%;
 }
 
 #credit-card {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    font-size: 1.1rem;
     color: white;
-    text-transform: uppercase;
+}
+
+#credit-card ::placeholder{
+    color: white;
 }
 
 .number-container, .name-container {
@@ -220,8 +233,8 @@ select {
     border: 0;
     border-radius: 5px;
     padding: 10px;
-    background-color: #333333;
-    color: white;
+    background-color: #2da39d;
+    color: #092d4b;
     font-weight: 600;
     font-size: 1.1rem;
     outline: 0;
@@ -240,4 +253,36 @@ select {
     width: 95%;
     background-color: #008cb1;
     cursor: pointer;
+}
+
+/*confirmation*/
+.confirmed {
+    text-align: center;
+}
+
+.summaryTable {
+    margin-left: 350px;
+    width: 50%;
+}
+
+/*Details*/
+.classContainer {
+    border: 0;
+    box-shadow: 0 0 10*x 0 rgba(149, 184, 209, .5);
+    border-radius: 10px;
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    gap: 20px;
+}
+.personalDetails {
+    width: 50%;
+}
+
+.bill {
+    width: 60%;
+}
+
+.personalDetails button {
+    width: 300px;
 }
