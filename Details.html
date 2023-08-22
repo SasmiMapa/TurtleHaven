@@ -29,7 +29,7 @@
       <div class="personalDetails">
         <h3>Enter your details here: </h3>
   
-        <form id="myForm">
+        <form id="myForm" x-data="formData" x-init="checkForm">
           <label for="fullName">Full Name:</label>
           <input type="text" id="fullName" required onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || event.key == ' '">
   
@@ -275,7 +275,6 @@
           
           <label for="phoneNumber">Phone Number:</label>
           <input type="tel" id="phoneNumber" maxlength="10" onkeypress="return event.charCode >= 48 && event.charCode <= 57" required>
-  
         </form> 
 
         <br><br><br>
@@ -364,7 +363,7 @@
     </div>
 
     <script src="Details.js"></script>
-  
+
     <footer>
         <div class="footer-container">
           <div class="socialIcons">

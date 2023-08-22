@@ -24,8 +24,8 @@
     <div class="booking">
       <div class="sectionContainer" x-data="ticketSelection()" x-init="loadFromLocalStorage">
         <div class="calendar" x-data="{ dateInput: '', dateSelected() { 
-          localStorage.setItem('chosenDate', this.dateInput);
-          } }">
+            localStorage.setItem('chosenDate', this.dateInput);
+        }}">
           <div class="section1">
             <h2>Dates</h2>
             <label for="dateInput">Select a date:</label>
@@ -79,11 +79,8 @@
             <input type="number" id="Infant" min="0" x-model="tickets.Infant" x-on:input="infantsCost">
 
             <br><br><br>
-            <button class="sub-button">
-              <a href="Details.html">
-                <span>Continue With Purchase</span>
-              </a>
-            </button>
+            <button class="sub-button" x-bind:disabled="totalCharges === 0" x-on:click="redirectToNextPage">Continue With Purchase</button>
+
             <br><br><br>
           </div>
 

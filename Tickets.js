@@ -263,5 +263,12 @@ function ticketSelection() {
         this.hours = JSON.parse(timeDuration);        
       }
     },
+
+      redirectToNextPage() {
+        if (this.totalCharges !== 0) {
+            window.location.href = 'Details.html';
+        }
+    }
+
   };
 }
