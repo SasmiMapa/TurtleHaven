@@ -117,15 +117,22 @@ select {
     align-items: center;
     text-align: center;
 }
-.calendar .billTable {
-    margin-right: 20px;
-}
 
 @media only screen and (max-width: 800px) {
-    .calendar {
+    .sectionContainer {
       grid-template-columns: 1fr;
     }
+  }
+/* .section1 {
+    width: 40%; 
+    float: left;
+    margin-left: 70px;
 }
+.section2 {
+    width: 40%;
+    float: left;
+    margin-left: 30px;
+} */
 
 .dropdown {
     position: relative;
