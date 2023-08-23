@@ -26,7 +26,7 @@
         <div class="calendar" x-data="{ dateInput: '', dateSelected() { 
             localStorage.setItem('chosenDate', this.dateInput);
           } }">
-          <div class="section1">
+          <div class="section_1">
             <h2>Dates</h2>
             <label for="dateInput">Select a date:</label>
             <input type="date" id="dateInput" x-model="dateInput" x-on:input="dateSelected()">
@@ -85,7 +85,7 @@
             <br><br><br>
           </div>
 
-          <div class="section2">
+          <div class="section_2">
             <table class="billTable">
               <tbody>
                 <tr>
