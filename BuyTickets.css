@@ -123,16 +123,12 @@ select {
       grid-template-columns: 1fr;
     }
   }
-/* .section1 {
-    width: 40%; 
-    float: left;
-    margin-left: 70px;
+.section1 {
+    text-align: left;
 }
 .section2 {
-    width: 40%;
-    float: left;
-    margin-left: 30px;
-} */
+    text-align: left;
+}
 
 .dropdown {
     position: relative;
