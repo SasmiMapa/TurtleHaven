@@ -25,7 +25,7 @@
       <div class="sectionContainer" x-data="ticketSelection()" x-init="loadFromLocalStorage">
         <div class="calendar" x-data="{ dateInput: '', dateSelected() { 
             localStorage.setItem('chosenDate', this.dateInput);
-        }}">
+          } }">
           <div class="section1">
             <h2>Dates</h2>
             <label for="dateInput">Select a date:</label>
