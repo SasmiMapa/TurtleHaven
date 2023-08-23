@@ -187,6 +187,7 @@ select {
 @media (max-width: 800px) {
     .calendar {
       grid-template-columns: 1fr;
+      text-align: left;
     }
     .section_1 {
         margin-left: 50px;
