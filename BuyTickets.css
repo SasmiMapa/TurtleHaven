@@ -109,15 +109,23 @@ select {
 }
 
 /*tickets page*/
+.sectionContainer{
+    overflow: hidden;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+}
 .section1 {
     width: 40%; 
     float: left;
-    margin-left: 70px;
+    /* margin-left: 70px; */
 }
 .section2 {
     width: 40%;
     float: left;
-    margin-left: 30px;
+    /* margin-left: 30px; */
 }
 
 .dropdown {
@@ -157,8 +165,8 @@ select {
 }
 
 .Table{
-    margin-left: 500px;
-    margin-right: 500px;
+    margin-left: 50px;
+    margin-right: 50px;
 }
 
 /*Details page*/
