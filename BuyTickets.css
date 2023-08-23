@@ -199,6 +199,8 @@ select {
     }
     .Table{
         margin-bottom: 50px;
+    }
+    .billTable {
         width: 30%;
     }
 }
