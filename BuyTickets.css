@@ -1,3 +1,4 @@
+/*common*/
 header {
     background-color: #2da39d;
     color: #fff;
@@ -11,30 +12,25 @@ header {
 	margin: auto;
 	margin-top: 1rem;
 }
-
 ul.breadcrumb {
 	padding: 10px 16px;
 	list-style: none;
 	background-color: transparent;
 }
-
 ul.breadcrumb li {
 	display: inline;
 	font-size: 18px;
 }
-
 ul.breadcrumb li+li:before {
 	padding: 8px;
 	color: #61d4c7;
 	content: ">";
 	font-weight: 700;
 }
-
 ul.breadcrumb li a {
 	color: #092d4b;
 	text-decoration: none;
 }
-
 ul.breadcrumb li.active {
 	color: white;
 	text-decoration: none;
@@ -42,31 +38,9 @@ ul.breadcrumb li.active {
 	display: unset;
 	place-items: unset;
 }
-
 ul.breadcrumb li a:hover {
 	text-decoration: none;
     color: white;
-}
-
-label[for="dateInput"] {
-    font-size: 17px;
-}
-  
-input[type="date"], input[type="text"], input[type="email"], input[type="number"] {
-    color: #308196;
-    height: 30px;
-}
-
-option {
-    color: #308196;
-    height: 30px;
-}
-select {
-    color: #308196;
-    height: 30px;
-}
-#Duration {
-    height: 50px;
 }
 
 .sub-button {
@@ -90,21 +64,9 @@ select {
 .sub-button:hover{
     background-color: #2da39d;
 }
-
 .sub-button[disabled] {
     background-color: #ccc; 
     pointer-events: none;
-}
-
-.section1 {
-    width: 40%; 
-    float: left;
-    margin-left: 70px;
-}
-.section2 {
-    width: 40%;
-    float: left;
-    margin-left: 30px;
 }
 
 .billTable {
@@ -127,6 +89,40 @@ select {
 }
 .billTable tr:last-child {
     background-color: #2da39d;
+}
+
+label[for="dateInput"] {
+    font-size: 17px;
+}
+input[type="date"], input[type="text"], input[type="email"], input[type="number"] {
+    color: #308196;
+    height: 30px;
+}
+
+option {
+    color: #308196;
+    height: 30px;
+}
+select {
+    color: #308196;
+    height: 30px;
+}
+
+
+/* #Duration {
+    height: 50px;
+} */
+
+/*tickets page*/
+.section1 {
+    width: 40%; 
+    float: left;
+    margin-left: 70px;
+}
+.section2 {
+    width: 40%;
+    float: left;
+    margin-left: 30px;
 }
 
 .dropdown {
@@ -155,7 +151,6 @@ select {
 	outline: none;
 	pointer-events: none;
 }
-
 .option {
     display: block;
     padding: 5px;
@@ -175,10 +170,27 @@ select {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
+    width: 50%;
 }
-
 .personalDetails h3{
     color: #092d4b;
+}
+.personalDetails button {
+    width: 300px;
+}
+
+.classContainer {
+    border: 0;
+    box-shadow: 0 0 10*x 0 rgba(149, 184, 209, .5);
+    border-radius: 10px;
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    gap: 20px;
+}
+
+.bill {
+    width: 60%;
 }
 
 /*Payment page*/
@@ -186,6 +198,12 @@ select {
     width: 100%;
     height: 100%;
     margin: 3% auto;
+}
+.container-left {
+    width: 30%;
+}
+.container-right {
+    width: 60%;
 }
 
 .ui {
@@ -197,18 +215,9 @@ select {
     display: flex;
     gap: 20px;
 }
-
 .ui label {
     color: #092d4b;
     font-size: 17px;
-}
-
-.container-left {
-    width: 30%;
-}
-
-.container-right {
-    width: 60%;
 }
 
 #credit-card {
@@ -217,9 +226,30 @@ select {
     gap: 15px;
     color: white;
 }
-
 #credit-card ::placeholder{
     color: white;
+}
+#credit-card input {
+    border: 0;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #2da39d;
+    color: #092d4b;
+    font-weight: 600;
+    font-size: 1.1rem;
+    outline: 0;
+    width: 90%;
+}
+#credit-card input [type="text"]:focus{
+    border: 1px solid #95b8d1
+}
+#credit-card input#valid-thru-text, input#cvv-text {
+    width: 80%;
+}
+#credit-card input[type="submit"] {
+    width: 95%;
+    background-color: #008cb1;
+    cursor: pointer;
 }
 
 .number-container, .name-container {
@@ -235,33 +265,7 @@ select {
     display: flex;
 }
 
-#credit-card input {
-    border: 0;
-    border-radius: 5px;
-    padding: 10px;
-    background-color: #2da39d;
-    color: #092d4b;
-    font-weight: 600;
-    font-size: 1.1rem;
-    outline: 0;
-    width: 90%;
-}
-
-#credit-card input [type="text"]:focus{
-    border: 1px solid #95b8d1
-}
-
-#credit-card input#valid-thru-text, input#cvv-text {
-    width: 80%;
-}
-
-#credit-card input[type="submit"] {
-    width: 95%;
-    background-color: #008cb1;
-    cursor: pointer;
-}
-
-/*confirmation*/
+/*confirmation page*/
 .confirmed {
     text-align: center;
 }
@@ -269,26 +273,4 @@ select {
 .summaryTable {
     margin-left: 350px;
     width: 50%;
-}
-
-/*Details*/
-.classContainer {
-    border: 0;
-    box-shadow: 0 0 10*x 0 rgba(149, 184, 209, .5);
-    border-radius: 10px;
-    width: 90%;
-    margin: 0 auto;
-    display: flex;
-    gap: 20px;
-}
-.personalDetails {
-    width: 50%;
-}
-
-.bill {
-    width: 60%;
-}
-
-.personalDetails button {
-    width: 300px;
 }
