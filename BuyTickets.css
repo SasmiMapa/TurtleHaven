@@ -109,7 +109,7 @@ select {
 }
 
 /*tickets page*/
-.calendar{
+/* .calendar{
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10px;
@@ -122,8 +122,8 @@ select {
     .sectionContainer {
       grid-template-columns: 1fr;
     }
-  }
-/* .section1 {
+  } */
+.section1 {
     width: 40%; 
     float: left;
     margin-left: 70px;
@@ -132,7 +132,7 @@ select {
     width: 40%;
     float: left;
     margin-left: 30px;
-} */
+}
 
 .dropdown {
     position: relative;
