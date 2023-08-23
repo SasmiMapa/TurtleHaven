@@ -73,7 +73,6 @@ ul.breadcrumb li a:hover {
     border-collapse: separate;
     border-spacing: 0;
     border: 1px solid #308196;
-    margin-top: 10px;
 }
 .billTable .blueRow td {
     color: white;
@@ -113,8 +112,6 @@ select {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10px;
-    justify-items: center;
-    align-items: center;
     text-align: center;
 }
 
@@ -123,11 +120,16 @@ select {
       grid-template-columns: 1fr;
     }
 }
-.section1 {
+.section_1 {
     text-align: left;
+    justify-items: center;
+    align-items: center;
+    margin-left: 200px;
 }
-.section2 {
-    margin-right: 20px;
+.section_2 {
+    margin-right: 40px;
+    margin-left: 40px;
+    margin-top: 50px;
 }
 
 .dropdown {
@@ -177,10 +179,13 @@ select {
 }
 
 .personalDetails {
+    text-align: left;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    width: 50%;
+    justify-items: center;
+    align-items: center;
+    font-size: 17px;
 }
 .personalDetails h3{
     color: #092d4b;
@@ -194,40 +199,46 @@ select {
     box-shadow: 0 0 10*x 0 rgba(149, 184, 209, .5);
     border-radius: 10px;
     width: 90%;
-    margin: 0 auto;
-    display: flex;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    text-align: center;
 }
 
 .bill {
-    width: 60%;
+    margin-right: 40px;
+    margin-left: 40px;
+    margin-top: 50px;
 }
 
 /*Payment page*/
 .container {
     width: 100%;
     height: 100%;
-    margin: 3% auto;
 }
 .container-left {
-    width: 30%;
+    margin-left: 40px;
+    margin-top: 50px;
+    justify-items: center;
+    align-items: center;
+    text-align: left;
 }
 .container-right {
-    width: 60%;
+    margin-right: 40px;
+    margin-left: 40px;
+    margin-top: 50px;
 }
 
 .ui {
     border: 0;
-    box-shadow: 0 0 10*x 0 rgba(149, 184, 209, .5);
-    border-radius: 10px;
-    width: 90%;
-    margin: 0 auto;
-    display: flex;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
 }
 .ui label {
     color: #092d4b;
     font-size: 17px;
+    text-align: left;
 }
 
 #credit-card {
@@ -237,14 +248,14 @@ select {
     color: white;
 }
 #credit-card ::placeholder{
-    color: white;
+    color: rgb(56, 127, 129);
 }
 #credit-card input {
     border: 0;
     border-radius: 5px;
     padding: 10px;
-    background-color: #2da39d;
-    color: #092d4b;
+    background-color: rgb(107, 189, 182);
+    color: white;
     font-weight: 600;
     font-size: 1.1rem;
     outline: 0;
@@ -269,6 +280,8 @@ select {
 
 .expiration-container, .cvv-container {
     width: 50%;
+    display: flex;
+    flex-direction: column;
 }
 
 .infos-container {
@@ -283,4 +296,5 @@ select {
 .summaryTable {
     margin-left: 350px;
     width: 50%;
+    margin-bottom: 30px;
 }

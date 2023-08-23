@@ -441,8 +441,6 @@ table {
     align-items: center;
     width: 100%;
     border-collapse: collapse;
-    margin-top: 50px;
-    margin-bottom: 30px;
 }
 th, td {
     padding: 6px;
@@ -487,6 +485,10 @@ td:nth-child(3) {
     width: 300px;
 }
 
+.Table2 {
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
 /*Hikkaduwa page*/
 /*brief description about the Hikkaduwa hatchery*/
 .desc {
