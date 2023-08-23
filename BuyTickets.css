@@ -98,6 +98,13 @@ ul.breadcrumb li a:hover {
     background-color: #2da39d;
 }
 
+@media (max-width: 800px) {
+    .billTable {
+        margin-right: 20px;
+        margin-left: 10px;
+    }
+}
+
 label[for="dateInput"] {
     font-size: 17px;
 }
