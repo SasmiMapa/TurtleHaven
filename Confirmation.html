@@ -26,81 +26,86 @@
     </header>
 
     <div class="confirmed">
-      <h3>Confirmation</h3>
-      <p>
-        Thank you for your order. Your order has been confirmed with us. 
-        You can show this confirmation at the entrance. Following is the summary of your order.
-      </p>
-    </div>
-    <br>
-    <div class="summaryTable" x-data="RetrieveData()">
-      <table class="billTable">
-        <tbody>
-          <tr>
-            <td>Name</td>
-            <td x-text="getName()" colspan="2"></td>
-          </tr>
-          <tr>
-            <td>Date</td>
-            <td x-text="getDate()" colspan="2"></td>
-          </tr>
-          <tr>
-            <td>Time</td>
-            <td x-text="getTime()" colspan="2"></td>
-          </tr>
-          <tr>
-            <td>Duration</td>
-            <td x-text="getDuration()" colspan="2"></td>
-          </tr>
-          <tr>
-            <td>Mobile</td>
-            <td x-text="getMobile()" colspan="2"></td>
-          </tr>
-          <tr>
-            <td>Email</td>
-            <td x-text="getEmail()" colspan="2"></td>
-          </tr>
-          <tr>
-            <td>Gender</td>
-            <td x-text="getGender()" colspan="2"></td>
-          </tr>
-          <tr class="blueRow">
-            <td>Ticket Type</td>
-            <td>Tickets</td>
-            <td>Charges</td>
-          </tr>
-          <tr>
-            <td>Sri Lankan Adults</td>
-            <td x-text="getSLAdults()"></td>
-            <td x-text="getSLAdultsCost()"></td>
-          </tr>
-          <tr>
-            <td>Sri Lankan Children</td>
-            <td x-text="getSLChildren()"></td>
-            <td x-text="getSLChildrenCost()"></td>
-          </tr>
-          <tr>
-            <td>Foreign Adults</td>
-            <td x-text="getForAdults()"></td>
-            <td x-text="getForAdultsCost()"></td>
-          </tr>
-          <tr>
-            <td>Foreign Children</td>
-            <td x-text="getForChildren()"></td>
-            <td x-text="getForChildrenCost()"></td>
-          </tr>
-          <tr>
-            <td>Infants</td>
-            <td x-text="getinfants()"></td>
-            <td x-text="getinfantsCost()"></td>
-          </tr>
-          <tr class="blueRow">
-            <td>Total</td>
-            <td x-text="getTotal()"></td>
-            <td x-text="getTotalCost()"></td>
-          </tr>
-        </tbody>
-      </table> 
+      <div class="thankYou">
+        <h3>Confirmation</h3>
+        <p>
+          Thank you for your order. Your order has been confirmed with us. 
+          You can show this confirmation at the entrance. Following is the summary of your order.
+        </p>
+      </div>
+
+      <br>
+
+      <div class="summaryTable" x-data="RetrieveData()">
+        <table class="billTable">
+          <tbody>
+            <tr>
+              <td>Name</td>
+              <td x-text="getName()" colspan="2"></td>
+            </tr>
+            <tr>
+              <td>Date</td>
+              <td x-text="getDate()" colspan="2"></td>
+            </tr>
+            <tr>
+              <td>Time</td>
+              <td x-text="getTime()" colspan="2"></td>
+            </tr>
+            <tr>
+              <td>Duration</td>
+              <td x-text="getDuration()" colspan="2"></td>
+            </tr>
+            <tr>
+              <td>Mobile</td>
+              <td x-text="getMobile()" colspan="2"></td>
+            </tr>
+            <tr>
+              <td>Email</td>
+              <td x-text="getEmail()" colspan="2"></td>
+            </tr>
+            <tr>
+              <td>Gender</td>
+              <td x-text="getGender()" colspan="2"></td>
+            </tr>
+            <tr class="blueRow">
+              <td>Ticket Type</td>
+              <td>Tickets</td>
+              <td>Charges</td>
+            </tr>
+            <tr>
+              <td>Sri Lankan Adults</td>
+              <td x-text="getSLAdults()"></td>
+              <td x-text="getSLAdultsCost()"></td>
+            </tr>
+            <tr>
+              <td>Sri Lankan Children</td>
+              <td x-text="getSLChildren()"></td>
+              <td x-text="getSLChildrenCost()"></td>
+            </tr>
+            <tr>
+              <td>Foreign Adults</td>
+              <td x-text="getForAdults()"></td>
+              <td x-text="getForAdultsCost()"></td>
+            </tr>
+            <tr>
+              <td>Foreign Children</td>
+              <td x-text="getForChildren()"></td>
+              <td x-text="getForChildrenCost()"></td>
+            </tr>
+            <tr>
+              <td>Infants</td>
+              <td x-text="getinfants()"></td>
+              <td x-text="getinfantsCost()"></td>
+            </tr>
+            <tr class="blueRow">
+              <td>Total</td>
+              <td x-text="getTotal()"></td>
+              <td x-text="getTotalCost()"></td>
+            </tr>
+          </tbody>
+        </table> 
+      </div>
+
     </div>
 
     <script src="Summary.js"></script>
