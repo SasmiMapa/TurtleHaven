@@ -186,6 +186,7 @@ select {
     }
     .section_2 {
         margin-bottom: 50px;
+        margin-right: 0;
     }
     .Table{
         margin-bottom: 50px;
@@ -237,6 +238,7 @@ select {
     .bill {
         margin-top: 0;
         margin-bottom: 50px;
+        margin-right: 0;
     }
 }
 
@@ -325,6 +327,7 @@ select {
     .container-right{
         display: flex;
         flex-wrap: wrap;
+        margin-right: 0;
     }
 }
 
@@ -347,7 +350,8 @@ select {
 }
 
 @media (max-width: 800px) {
-    .summaryTable .billTable{
+    .summaryTable table{
         margin-left: 0;
+        margin-right: 0;
     }
 }
