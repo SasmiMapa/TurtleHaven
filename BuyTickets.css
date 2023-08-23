@@ -119,7 +119,7 @@ select {
 }
 
 @media only screen and (max-width: 800px) {
-    .sectionContainer {
+    .calendar {
       grid-template-columns: 1fr;
     }
   }
