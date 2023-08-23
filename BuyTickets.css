@@ -112,14 +112,14 @@ select {
 .calendar{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    gap: 5px;
     justify-items: center;
     align-items: center;
     text-align: center;
 }
 
 @media only screen and (max-width: 800px) {
-    .sectionContainer {
+    .calendar {
       grid-template-columns: 1fr;
     }
   }
