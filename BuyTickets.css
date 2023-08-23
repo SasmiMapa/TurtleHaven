@@ -198,10 +198,12 @@ select {
         margin-left: 10px;
     }
     .Table{
+        margin-left: 20px;
+        margin-right: 20px;
         margin-bottom: 50px;
     }
     .billTable {
-        width: 30%;
+        width: 10%;
     }
 }
 
