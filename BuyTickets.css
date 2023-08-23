@@ -101,7 +101,6 @@ ul.breadcrumb li a:hover {
 @media (max-width: 800px) {
     .billTable {
         margin-left: 10px;
-        width: 50%;
     }
 }
 
