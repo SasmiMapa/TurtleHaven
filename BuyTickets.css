@@ -118,11 +118,11 @@ select {
     text-align: center;
 }
 
-@media only screen and (max-width: 800px) {
+@media (max-width: 800px) {
     .calendar {
       grid-template-columns: 1fr;
     }
-  }
+}
 .section1 {
     text-align: left;
 }
