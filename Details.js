@@ -6,12 +6,11 @@ function saveData() {
 
   if (fullName === "" || email === "" || gender === "" || fullPhoneNumber === "") {
       alert("Please fill in all the required fields.");
-      console.log("True");
   } else {
-      localStorage.setItem("name", fullName.value);
-      localStorage.setItem("email", email.value);
-      localStorage.setItem("gender", gender.value);
-      localStorage.setItem("fullPhoneNumber", fullPhoneNumber.value);
+      localStorage.setItem("name", fullName);
+      localStorage.setItem("email", email);
+      localStorage.setItem("gender", gender);
+      localStorage.setItem("fullPhoneNumber", fullPhoneNumber);
 
       document.getElementById("myForm").submit();
 

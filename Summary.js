@@ -71,13 +71,10 @@ function RetrieveData(){
         return totCost;
     }
 
-    const formDataJson = localStorage.getItem("formData");
-    const formData = JSON.parse(formDataJson);
-
-    const name = formData.fullName;
-    const mobile = formData.fullPhoneNumber;
-    const email = formData.email;
-    const Gender = formData.gender;
+    const name = localStorage.getItem("name");
+    const mobile = localStorage.getItem("fullPhoneNumber");
+    const email = localStorage.getItem("email");
+    const Gender = localStorage.getItem("gender");
 
     function getName(){
         return name;
