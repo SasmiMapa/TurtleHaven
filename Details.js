@@ -4,28 +4,28 @@ function saveData() {
   const gender = document.getElementById("gender").value;
   const fullPhoneNumber = document.getElementById("countryCode").value + document.getElementById("phoneNumber").value;
 
-  const formData = {
-    fullName: fullName,
-    email: email,
-    gender: gender,
-    fullPhoneNumber: fullPhoneNumber
-  };
+  if (fullName === "" || email === "" || gender === "" || fullPhoneNumber === "") {
+      alert("Please fill in all the required fields.");
+      console.log("True");
+  } else {
+      localStorage.setItem("name", fullName.value);
+      localStorage.setItem("email", email.value);
+      localStorage.setItem("gender", gender.value);
+      localStorage.setItem("fullPhoneNumber", fullPhoneNumber.value);
 
-  const formDataJson = JSON.stringify(formData);
-  localStorage.setItem("formData", formDataJson);
+      document.getElementById("myForm").submit();
 
-  // Refresh the displayed table data
+      window.location.href = "Payment.html";
+  }
+
   displayFormData();
 }
 
 function displayFormData() {
-  const formDataJson = localStorage.getItem("formData");
-  const formData = JSON.parse(formDataJson);
-
-  document.getElementById("nameCell").textContent = formData.fullName;
-  document.getElementById("mobileCell").textContent = formData.fullPhoneNumber;
-  document.getElementById("emailCell").textContent = formData.email;
-  document.getElementById("genderCell").textContent = formData.gender;
+  document.getElementById("nameCell").textContent = localStorage.getItem("name");
+  document.getElementById("emailCell").textContent= localStorage.getItem("email");
+  document.getElementById("genderCell").textContent = localStorage.getItem("gender");
+  document.getElementById("mobileCell").textContent = localStorage.getItem("fullPhoneNumber");
 }
 
 function RetrieveData(){
@@ -122,43 +122,3 @@ function RetrieveData(){
     getTotalCost: function() { return totCost; }
   };
 }
-
-
-
-
-  const formData = {
-    fullName: "",
-    email: "",
-    email2: "",
-    gender: "",
-    countryCode: "",
-    phoneNumber: "",
-    isFormValid: false,
-
-    initForm() {
-      this.$watch("fullName", () => this.checkForm());
-      this.$watch("email", () => this.checkForm());
-      this.$watch("email2", () => this.checkForm());
-      this.$watch("gender", () => this.checkForm());
-      this.$watch("countryCode", () => this.checkForm());
-      this.$watch("phoneNumber", () => this.checkForm());
-
-      this.checkForm();
-    },
-
-    checkForm() {
-      this.isFormValid = this.fullName !== "" && 
-                        this.email !== "" && 
-                        this.email === this.email2 && 
-                        this.gender !== "" && 
-                        this.countryCode !== "" && 
-                        this.phoneNumber !== "";
-    },
-
-    saveData() {
-      if (this.isFormValid === false) {
-        // Redirect to Purchase.html
-        window.location.href = "Purchase.html";
-      }
-    }
-  };
