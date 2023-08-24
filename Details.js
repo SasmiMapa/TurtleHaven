@@ -122,3 +122,43 @@ function RetrieveData(){
     getTotalCost: function() { return totCost; }
   };
 }
+
+
+
+
+  const formData = {
+    fullName: "",
+    email: "",
+    email2: "",
+    gender: "",
+    countryCode: "",
+    phoneNumber: "",
+    isFormValid: false,
+
+    initForm() {
+      this.$watch("fullName", () => this.checkForm());
+      this.$watch("email", () => this.checkForm());
+      this.$watch("email2", () => this.checkForm());
+      this.$watch("gender", () => this.checkForm());
+      this.$watch("countryCode", () => this.checkForm());
+      this.$watch("phoneNumber", () => this.checkForm());
+
+      this.checkForm();
+    },
+
+    checkForm() {
+      this.isFormValid = this.fullName !== "" && 
+                        this.email !== "" && 
+                        this.email === this.email2 && 
+                        this.gender !== "" && 
+                        this.countryCode !== "" && 
+                        this.phoneNumber !== "";
+    },
+
+    saveData() {
+      if (this.isFormValid === false) {
+        // Redirect to Purchase.html
+        window.location.href = "Purchase.html";
+      }
+    }
+  };
